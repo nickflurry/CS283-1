@@ -1,0 +1,3 @@
+The c program will output “fd2 = 4” since descriptor 0 1 2 are taken by stdin, stdout, and 
+stderr respectively, and descriptor 3 is taken by fd1. Since open returns the lowest unopened
+descriptor, it gives fd2 descriptor 4.

@@ -1,0 +1,23 @@
+# Run 'make', then 'touch one.h' and 'make' again.
+
+CC=cc #defines CC variable to use as cc bash command
+
+all: one #if all target is called, it will call the one target, which will call one.o,main.o,two.o,and three.o
+
+one: one.o main.o two.o three.o #prereqs for the target one
+	${CC} one.o main.o two.o three.o -o one #compiles one.o,main.o,two.o, and three.o once they are created
+
+one.o: ext.h one.h one.c #checks to see if those files exist
+	${CC} -c one.c #compiles one.c
+
+main.o: ext.h one.h main.c  #checks to see if those files exist
+	${CC} -c main.c #compiles main.c
+
+two.o: one.h two.c  #checks to see if those files exist
+	${CC} -c two.c #compiles two.c
+
+three.o: one.h three.c  #checks to see if those files exist
+	${CC} -c three.c #compiles three.c
+
+clean: #target deletes any file that ends with a .o
+	rm -f one *.o

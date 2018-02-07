@@ -1,0 +1,159 @@
+(gdb) break etox.c:25
+Breakpoint 1 at 0x400722: file etox.c, line 25.
+(gdb) break etox.c:40
+Breakpoint 2 at 0x400797: file etox.c, line 40.
+(gdb) run
+Starting program: /home/jea74/CS283/L1/gdb/a.out
+This program calculates e^x
+using sum of (x^k)/k!
+Enter x, n : 2
+3
+x,n =   2.0000    3
+
+Breakpoint 1, getvalue (x=2, n=3) at etox.c:30
+30        double value = 0.0;
+(gdb) watch value
+Hardware watchpoint 3: value
+(gdb) n
+31        double xpow = 1.0;
+(gdb) watch xpow
+Hardware watchpoint 4: xpow
+(gdb) n
+
+Hardware watchpoint 4: xpow
+
+Old value = 0
+New value = 1
+getvalue (x=2, n=3) at etox.c:32
+32        for (k = 0; k <= n; k++)
+(gdb) n
+34          value += xpow / factorial(k);
+(gdb) n
+
+Breakpoint 2, factorial (number=0) at etox.c:44
+44        int fact = 0;
+(gdb) watch fact
+Hardware watchpoint 5: fact
+(gdb) n
+46        for (j = 1; j <= number; j++)
+(gdb) n
+51        return(fact);
+(gdb) print fact
+$1 = 0
+(gdb) n
+52       }
+(gdb) n
+
+Watchpoint 5 deleted because the program has left the block in
+which its expression is valid.
+0x000000000040074b in getvalue (x=2, n=3) at etox.c:34
+34          value += xpow / factorial(k);
+(gdb) n
+
+Hardware watchpoint 3: value
+
+Old value = 0
+New value = inf
+getvalue (x=2, n=3) at etox.c:35
+35          xpow = xpow * x;
+(gdb) n
+
+Hardware watchpoint 4: xpow
+
+Old value = 1
+New value = 2
+getvalue (x=2, n=3) at etox.c:32
+32        for (k = 0; k <= n; k++)
+(gdb) n
+34          value += xpow / factorial(k);
+(gdb) n
+
+Breakpoint 2, factorial (number=1) at etox.c:44
+44        int fact = 0;
+(gdb) n
+46        for (j = 1; j <= number; j++)
+(gdb) n
+48          fact = fact * j;
+(gdb) n
+46        for (j = 1; j <= number; j++)
+(gdb) n
+51        return(fact);
+(gdb) n
+52       }
+(gdb) n
+getvalue (x=2, n=3) at etox.c:35
+35          xpow = xpow * x;
+(gdb) print fact
+No symbol "fact" in current context.
+(gdb) n
+
+Hardware watchpoint 4: xpow
+
+Old value = 2
+New value = 4
+getvalue (x=2, n=3) at etox.c:32
+32        for (k = 0; k <= n; k++)
+(gdb) n
+34          value += xpow / factorial(k);
+(gdb) n
+
+Breakpoint 2, factorial (number=2) at etox.c:44
+44        int fact = 0;
+(gdb) n
+46        for (j = 1; j <= number; j++)
+(gdb) n
+48          fact = fact * j;
+(gdb) n
+46        for (j = 1; j <= number; j++)
+(gdb) n
+48          fact = fact * j;
+(gdb) n
+46        for (j = 1; j <= number; j++)
+(gdb) n
+51        return(fact);
+(gdb) print fact
+$2 = 0
+(gdb) n
+52       }
+(gdb) n
+getvalue (x=2, n=3) at etox.c:35
+35          xpow = xpow * x;
+(gdb) n
+
+Hardware watchpoint 4: xpow
+
+Old value = 4
+New value = 8
+getvalue (x=2, n=3) at etox.c:32
+32        for (k = 0; k <= n; k++)
+(gdb) n
+34          value += xpow / factorial(k);
+(gdb) n
+
+Breakpoint 2, factorial (number=3) at etox.c:44
+44        int fact = 0;
+(gdb) print xpow
+No symbol "xpow" in current context.
+(gdb) n
+46        for (j = 1; j <= number; j++)
+(gdb) n
+48          fact = fact * j;
+(gdb) n
+46        for (j = 1; j <= number; j++)
+(gdb) n
+48          fact = fact * j;
+(gdb) n
+46        for (j = 1; j <= number; j++)
+(gdb)
+48          fact = fact * j;
+(gdb)
+46        for (j = 1; j <= number; j++)
+(gdb)
+51        return(fact);
+(gdb)
+52       }
+(gdb)
+getvalue (x=2, n=3) at etox.c:35
+35          xpow = xpow * x;
+(gdb) print xpow
+$3 = 8

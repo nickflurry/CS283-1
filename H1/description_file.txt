@@ -1,0 +1,32 @@
+Jose Arguelles
+CS 283 
+H1
+
+Compiler used was gcc and done using vim text editor on tux.
+
+reverse_file.c (problem 1)
+For this file, you must first compile it. I reccommend typing in:
+gcc -o reverse reverse_file.c
+
+To start the program enter: ./reverse filename.txt
+For filename.txt, you can enter in any text file (make sure to add .txt at the end) as long
+as it is in the same directory.
+This program is meant to print out the result of a textfile in reverse.
+I tested this file by creating a text file of my own, then seeing if the lines were output in
+reverse. It worked.
+
+binary_convert.c (problem 2)
+Compile using gcc -o convert binary_convert.c
+To run use ./convert #
+For #, you can enter in any integer
+
+This program is meant to convert any integer into binary. 
+I tested this file by entering in a lot of integers and seeing if the conversion
+was correct. 
+
+longint_size.c (problem 3)
+Compile using gcc -o size longint_size.c
+To run use ./size
+
+This program is meant to tell you the size of a long int in bits.
+I tested this file by runnign the program, then seeing if it was the correct number.

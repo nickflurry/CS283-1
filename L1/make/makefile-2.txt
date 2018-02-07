@@ -1,0 +1,27 @@
+PROG= test #defines variable as a target name, test
+
+OBJS= one.o main.o two.o three.o
+ #defines variable as file names
+CFLAGS= -Wall -g #defines variable as flags for warning messages and debugging
+
+
+all: ${PROG} #will call the test target
+
+
+
+${PROG}: ${OBJS} #test target with prerequisites defined in OBJS
+
+	@echo $@ depends on $?
+	#console will output the target name depends on prereqs (test depends on ...)
+	${CC} ${LDFLAGS} ${OBJS} -o ${PROG}
+ #compiles object files in OBJS
+
+
+.c.o:
+	
+	$(CC) -c $(CFLAGS) -o $@ $< #compiles files .c and .o with debugging & warning flags
+	
+
+clean:
+	#deletes files test, one.o, main.o,two.o,and three.o
+	rm -f ${PROG} ${OBJS}

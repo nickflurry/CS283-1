@@ -1,0 +1,32 @@
+==32565== Memcheck, a memory error detector
+==32565== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==32565== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==32565== Command: ./a.out
+==32565==
+==32565== Invalid write of size 4
+==32565==    at 0x400544: f (v00.c:7)
+==32565==    by 0x40055A: main (v00.c:12)
+==32565==  Address 0x5204068 is 0 bytes after a block of size 40 alloc'd
+==32565==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32565==    by 0x400537: f (v00.c:6)
+==32565==    by 0x40055A: main (v00.c:12)
+==32565==
+==32565==
+==32565== HEAP SUMMARY:
+==32565==     in use at exit: 40 bytes in 1 blocks
+==32565==   total heap usage: 1 allocs, 0 frees, 40 bytes allocated
+==32565==
+==32565== 40 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==32565==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32565==    by 0x400537: f (v00.c:6)
+==32565==    by 0x40055A: main (v00.c:12)
+==32565==
+==32565== LEAK SUMMARY:
+==32565==    definitely lost: 40 bytes in 1 blocks
+==32565==    indirectly lost: 0 bytes in 0 blocks
+==32565==      possibly lost: 0 bytes in 0 blocks
+==32565==    still reachable: 0 bytes in 0 blocks
+==32565==         suppressed: 0 bytes in 0 blocks
+==32565==
+==32565== For counts of detected and suppressed errors, rerun with: -v
+==32565== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

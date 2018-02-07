@@ -1,0 +1,38 @@
+Reading symbols from a.out...done.
+(gdb) break g1.c:8
+Breakpoint 1 at 0x400630: file g1.c, line 8.
+(gdb) run
+Starting program: /home/jea74/CS283/L1/gdb/a.out
+a
+
+Breakpoint 1, main () at g1.c:8
+8         while (c != EOF)
+(gdb) watch c
+Hardware watchpoint 2: c
+(gdb) n
+9         if (isalnum (c) )
+(gdb) n
+10         printf ("%c\n", c) ;
+(gdb) n
+a
+8         while (c != EOF)
+(gdb) print c
+$1 = 97 'a'
+(gdb) n
+9         if (isalnum (c) )
+(gdb) n
+10         printf ("%c\n", c) ;
+(gdb) n
+a
+8         while (c != EOF)
+(gdb) print c
+$2 = 97 'a'
+(gdb) n
+9         if (isalnum (c) )
+(gdb) n
+10         printf ("%c\n", c) ;
+(gdb) n
+a
+8         while (c != EOF)
+(gdb) print c
+$3 = 97 'a'
