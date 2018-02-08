@@ -1,0 +1,3 @@
+thing is a test.
+I want to see thing line in the text file.
+If i dont see thing line, I will freak out

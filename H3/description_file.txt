@@ -1,0 +1,17 @@
+Jose Arguelles
+CS 283 
+H3
+
+Compiler used was gcc and done using vim text editor on tux.
+
+This folder contains the replace.c file, a makefile, and this description_file.txt. 
+
+This program is meant to search for a key word in every text file in the current directory. Once found, it will be replaced with another word that is specified. If no occurences of the word are found, then it will search the file for another keyword, and will prepend that word with the original word we were looking for. 
+
+To compile the code, you can just type "make" into the console. This will compile all the code and it will be ready to run. 
+
+To run this code, type "./replace find replace prefix" where find, replace, and prefix are the arguments that you can specify for the program. The program will find all occurences of the first param, then replace it with the replace param. If none occur, then it will find all occurences of the prefix param, and then prepend the find param to the word.
+
+To clean up the directory just type "make clean" into the console.
+
+I found that prepending a the string was particularly difficult, otherwise this was a decent homework.
