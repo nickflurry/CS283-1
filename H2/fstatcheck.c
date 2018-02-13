@@ -19,7 +19,6 @@ int main (int argc, char **argv){
 		readok = "yes";
 	else
 		readok = "no";
-	close(fd);
 	printf("type: %s, read %s\n", type, readok);
 	exit(0);
 }
