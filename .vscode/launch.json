@@ -9,7 +9,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "/home/jose/Desktop/CS283/H3/replace",
+      "program": "/home/jose/Desktop/CS283/L2/syncDir",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

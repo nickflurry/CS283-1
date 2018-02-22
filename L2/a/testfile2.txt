@@ -1,0 +1,3 @@
+This will be copied into b entirely.
+Since it does not exist in b.
+yes.
