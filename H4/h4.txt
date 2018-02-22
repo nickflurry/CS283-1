@@ -1,0 +1,40 @@
+Jose Arguelles
+H4
+
+8.11) This program will output "hello" four times. This is
+because after the first Fork(), the system will create two 
+other processes, and then each will loop again to call
+Fork(), which each will create another two processes, resulting
+in four total in the end. Each four will print "hello".
+
+8.12) This program will output "hello" eight times. The function
+doit() will be called. After the first fork(), there will be 
+two processes, and then another call to fork() will create four.
+Those four will then print "hello", then go back to main, and
+each four will print out another "hello".
+
+8.13)
+x=4
+x=3
+x=2
+The call to fork() will result in a parent and a child process. 
+Since the child process would return 0, it will go straight to
+the last print. The parent process will go through both the 
+++x, and --x, resulting in it printing x=4 and x=3. Since
+the child only goes through the --x, it will print out x=2.
+
+8.14)  This program will output "hello" three times. The first
+call to fork() will result in a parent and a child. The parent
+will go into the if statement, call Fork() again and have those 
+two new processes print "hello", then exit. The first child
+process created will go back to main and then print "hello".
+
+8.16) This program will outout "counter = 2". The program will 
+first call fork() in the if statement. The parent will go into
+the if statement and decrement the counter global variable then 
+exit. The child will go into the else statement, wait, and then
+print "counter = 2" after counter is incremented.
+
+8.23) The reason behind the bug is because after the first signal
+is processed, all the other signals are moved into a pending state,
+since a handler is blocking their signal with sleep.
