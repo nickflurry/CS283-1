@@ -6,11 +6,19 @@ Compiler used was gcc and done using vim text editor on tux.
 
 This folder contains the syncDir.c file, a makefile, and this description_file.txt. 
 
-This program was meant to synchronize two directories. If a file in the first specified directory(a) was not in the second specified directory(b), then a that file would be copied into directory b. If a file was in directory b but not in directory a, then that file would be deleted. If a file is found in both a and b, then that file will be copied into the directory where the file was most recently modified. 
+This program was meant to synchronize two directories. If a file in the first specified 
+directory(a) was not in the second specified directory(b), then a that file would be copied 
+into directory b. If a file was in directory b but not in directory a, then that file would 
+be deleted. If a file is found in both a and b, then that file will be copied into the 
+directory where the file was most recently modified. 
 
-To compile the code, you just have to type "make" into the console. This will compile all the code and it will be ready to run.
+To compile the code, you just have to type "make" into the console. This will compile all 
+the code and it will be ready to run.
 
-To run this code, type "./syncDir ./a ./b" where ./a is the first specified directory and ./b is the second specified directory (you must put "./" in front of directory names for this to work). The program will run and print out the statuses, letting you know what operations were done and where. 
+To run this code, type "./syncDir ./a ./b" where ./a is the first specified directory and 
+./b is the second specified directory (you must put "./" in front of directory names for 
+this to work). The program will run and print out the statuses, letting you know what 
+operations were done and where. 
 
 To clean up the directory just type "make clean" into the console.
 
