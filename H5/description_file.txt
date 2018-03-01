@@ -4,4 +4,6 @@ H5
 
 This folder contains csapp.c, csapp.h, tiny.c and this description_file.txt.
 
-To run the program, type "gcc -o tiny tiny.c csapp.c -lpthread" into the terminal. Once you done, you can type "./tiny" to run the program. All modifications specified in the homework problems are all done in one file, tiny.c . 
+To run the program, type "gcc -o tiny tiny.c csapp.c -lpthread" into the terminal. Once you 
+done, you can type "./tiny" to run the program. All modifications specified in the homework 
+problems are all done in one file, tiny.c . 
