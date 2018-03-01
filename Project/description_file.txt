@@ -1,0 +1,13 @@
+Jose Arguelles
+CS283
+Project Preliminary
+
+Compiler used was gcc and done using vim text editor on tux.
+
+This folder contains the myint.c, myspin.c, mysplit.c, mystop.c, tsh-skel-ck.c, tshref-tux, a makefile, and this descriptionfile.txt .
+
+For the preliminary I believe that I got done builtin_cmd, waitfg, sigint_handler, and sigtstp_handler functions. I have inputted my code, but I have yet to test them since I do not have eval, do_bgfg, and sigchld_handler finished. Even though they are not finished I at least inputted some error handling for things that could possibly go wrong, and also some pseudo code for me to look it while thinking further about it.
+
+To compile my shell, all you have to do is type in "make" in the command line. This will compile all the test programs, such as myspin, and also the tiny shell. To run the tiny shell, just type "./tsh" into the command line. No functions work right now.
+
+To clean the directory, type in "make clean" to get rid of all the compiled code.

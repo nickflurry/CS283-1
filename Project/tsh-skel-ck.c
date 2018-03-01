@@ -175,6 +175,22 @@ int main(int argc, char **argv)
 */
 void eval(char *cmdline)
  {
+  char *argv[MAXARGS];
+  int line;
+  
+  if(cmdline != NULL){
+    line = parseline(cmdline,argv);
+
+    //checks to see if there is a command and if it is builtin
+    if(*argv != NULL && !builtin_cmd(argv)){
+      //fork child process, then run job in child
+      //if it is running in fg, wait for it to finish then terminate (use waitfg)
+      
+      //give each child a unique pid
+      //ensure bg children don't receive ctrl-c and ctrl-z
+    }
+  }
+
   return;
  }
 
@@ -246,9 +262,31 @@ int parseline(const char *cmdline, char **argv)
 *    it immediately.
 */
 int builtin_cmd(char **argv)
- {
-  return 0;
-  /* not a builtin command */
+ { 
+   if(strcmp(argv[0],"quit") == 0){
+     int i;
+     for(i = 0; i < MAXJOBS ; i++){
+       if(jobs[i].state == ST){
+         printf("Job [%d] (%d) terminated by signal ??",jobs[i].jid,jobs[i].pid); //include signal number
+       }
+     }
+   }
+   else if(strcmp(argv[0],"jobs") == 0){
+     listjobs(jobs);
+     return 1;
+   }
+   else if(strcmp(argv[0],"fg") == 0){
+     do_bgfg(argv);
+     return 1;
+   }
+   else if(strcmp(argv[0],"bg") == 0){
+     do_bgfg(argv);
+     return 1;
+   }
+   else{
+    /* not a builtin command */
+    return 0;
+   }
  }
 
 /*
@@ -256,6 +294,24 @@ int builtin_cmd(char **argv)
 */
 void do_bgfg(char **argv)
  {
+   //first check to see if arguments have a pid
+   struct job_t *job;
+   //end of string if \0 is at 1, so no pid provided
+   if(argv[1] == "\0"){
+     if((strcmp(argv[0],"fg") == 0)){
+       printf("fg command requires PID or jobpid argument");
+       return;
+     }
+     else if((strcmp(argv[0],"fg") == 0)){
+       printf("bg command requires PID or jobpid argument");
+       return;
+     }
+   }
+   else{
+     //check if arguments are valid
+     //if fg, add job to fgpid
+     //if bg, remove job from fgpid and add to bg
+   }
   return;
  }
 
@@ -264,6 +320,18 @@ void do_bgfg(char **argv)
 */
 void waitfg(pid_t pid)
  {
+   struct job_t *job = getjobpid(jobs,pid);
+   //if the job is empty then return
+   if(job == NULL){
+     return;
+   }
+   else{
+     //if job still exists in jobs and FG, then wait, until it doesn't exist, then return
+     while(job->pid == pid && job->state==FG){
+       sleep(1);
+     }
+     return;
+   }
   return;
  }
 
@@ -280,6 +348,11 @@ void waitfg(pid_t pid)
 */
 void sigchld_handler(int sig)
  {
+   //go through all jobs
+   //make case for when child terminates normally
+   //make case for when child terminates due to signal(sigint and sigtstp)
+   //delete the job if it is normal or sigint
+   //set the state of sigtstp to ST
   return;
  }
 
@@ -290,6 +363,11 @@ void sigchld_handler(int sig)
 */
 void sigint_handler(int sig)
  {
+   pid_t fg_pid = fgpid(jobs);
+   //checks if fg job exists, if so then kill it with SIGINT signal
+   if(fg_pid != 0){
+     kill(fg_pid,SIGINT);
+   }
   return;
  }
 
@@ -300,6 +378,11 @@ void sigint_handler(int sig)
 */
 void sigtstp_handler(int sig)
  {
+   pid_t fg_pid = fgpid(jobs);
+   //checks if fg job exists, if so then kill with SIGTSTP signal
+   if(fg_pid != 0){
+     kill(-fg_pid,SIGTSTP);
+   }
   return;
  }
 
