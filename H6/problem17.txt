@@ -1,0 +1,7 @@
+12.17)
+
+A.)
+Nothing prints because pthread_join is not called. The thread is created, and then the program immmediately calls exit, without letting the thread do its job. The pthread_join method forces the program to wait for the thread to terminate, and then joins the thread with the main thread.
+
+B.)
+You can replace exit(0) with the Pthread_join function.The program will join the thread created once it is terminated, then the program will exit.

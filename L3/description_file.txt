@@ -1,0 +1,17 @@
+Jose Arguelles
+CS 283 
+L3
+
+Compiler used was gcc and done using vscode on Ubuntu.
+
+This folder contains the client.c, server.c, csapp.c, csapp.h, index.html,makefile, and this description_file.txt.
+
+This program is meant to be a client-server. The client program is to take in three arguments, a host, a port, and a file name(must include extension). The server program takes in a port as an argument. The client will send a request to the specific host and port socket. The server will then respond back with the contents of the file, and the client will print them out.
+
+To compile the code, you can just type "make" into the console. This will compile all the code and it will be ready to run. 
+
+To run this code, you must first start the server first. You can do this by typing "./server port", where the port can be anything you want as long as it is not already used. Then, type "./client host port file", the host, port, and file being whatever you choose. However, the port must be the same number used for the server, and the file path must be within the same directory as the client and server program. 
+
+To clean up the directory just type "make clean" into the console.
+
+I found this lab fairly simple.
